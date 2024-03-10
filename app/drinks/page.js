@@ -2,17 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
 
-const fetchDricks = async ()  => {
+const fetchDrinks = async ()  => {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   const response = await fetch(url)
   const data = await response.json()
-  console.log(data)
+  
 }
 
 const drinks = async() => {
-  const response = await fetch(url)
-  const data = await response.json()
-  console.log(data)
-
+  const data = await fetchDrinks()
   return (
     <div>
         <h1 className='text-7xl'>Drink Page</h1>
