@@ -1,11 +1,11 @@
 import React from 'react'
 
 const loading = () => {
-  return (
+    return (
     <div className='flex justify-center items-center h-screen'>
-    <span className='loading'></span>
+        <span className='loading'></span>
     </div>
-  )
+    )
 }
 
 export default loading
