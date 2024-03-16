@@ -21,9 +21,10 @@ const SingleDrinkPage = async ({params}) => {
   const imgSrc = data?.drinks[0]?.strDrinkThumb || ''
   return <div>
     <Link href='/drinks' className='btn btn-primary mt-8 mb-12'>Back to drinks</Link>
-    <Image src={drinkImg} alt='drink' className='w-48 h-48 rounded-lg'/>
+    <Image src={imgSrc} width={300} height={300} alt={title} className='w-48 h-48 shadow-lg mb-4rounded-lg' priority/>
+    {/* <Image src={drinkImg} alt='drink' className='w-48 h-48 rounded-lg'/> */}
       <h1 className='text-4xl mb8title'>{title}</h1>
-      <img src={imgSrc} alt={title} />
+      {/* <img src={imgSrc} alt={title} /> */}
   </div>
 };
 
