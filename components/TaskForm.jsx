@@ -1,18 +1,10 @@
-import { data } from 'autoprefixer';
-import { revalidatePath } from 'next/cache';
+import { createTask } from '@/utils/actions';
 import React from 'react'
 
-const createTask = async (formData) => {
-    'use server'
-    const content = formData.get('content');
+// const createTask = async (formData) => {
+//     'use server'
     
-    await prisma.task.create({
-        data:{
-            content,
-        },
-    });
-    revalidatePath('/task');
-};
+// };
 
 const TaskForm = () => {
   return (
