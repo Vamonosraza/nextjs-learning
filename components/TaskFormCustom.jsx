@@ -1,6 +1,6 @@
 'use client'
 import { createTaskCustom } from '@/utils/actions';
-import { useFormStatus } from 'react-dom';
+import { useFormStatus, useFormState } from 'react-dom';
 import React from 'react'
 
 // const createTask = async (formData) => {
@@ -19,9 +19,18 @@ const {pending} = useFormStatus()
   )
 }
 
+const initialState = {
+  message: null,
+}
+
 const TaskForm = () => {
+const [state, formAction] = useFormState(createTaskCustom, initialState)
+
   return (
-    <form action={createTaskCustom}>
+    <form action={formAction}>
+      {state.message ? <p className='mb-2'>
+        {state.message}
+      </p> : null}
     <div className='join w-full'>
         <input type='text' className='input input-border join-item w-full' placeholder='type your task here...' name='content'/>
         <SubmitBtn />

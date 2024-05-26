@@ -55,14 +55,19 @@ export const editTask = async (formData) => {
     redirect('/task');
 }
 
-export const createTaskCustom = async(formData) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+export const createTaskCustom = async(prevState, formData) => {
+    // await new Promise((resolve) => setTimeout(resolve, 2000))
     const content = formData.get('content');
     
+    try {
     await prisma.task.create({
         data:{
             content,
         },
     });
     revalidatePath('/task');
+    return {message: 'Task created successfully'}
+} catch (error) {
+    return {message: 'Error creating task'}
+}
 }
