@@ -61,7 +61,7 @@ export const createTaskCustom = async(prevState, formData) => {
     const content = formData.get('content');
     const Task = z.object({
         content: z.string().min(5),
-    })
+    });
     
     try {
         Task.parse({content})
@@ -72,7 +72,8 @@ export const createTaskCustom = async(prevState, formData) => {
     });
     revalidatePath('/task');
     return {message: 'Task created successfully'}
+    // The 'error' message here needs to be the same as the one in the TaskForm component in order for the toast error message to display
 } catch (error) {
-    return {message: 'Error creating task'}
+    return {message: 'error'}
 }
 }
