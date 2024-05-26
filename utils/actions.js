@@ -40,11 +40,15 @@ export const getTask = async (id) => {
 
 export const editTask = async (formData) => {
     const id = formData.get('id');
+    const  content= formData.get('content');
+    const completed = formData.get('completed');
+    
 
     await prisma.task.update({
         where: {id},
         data: {
-            content: formData.get('content')
+            content,
+            completed:completed === 'on'? true : false,
         }
     })
 }

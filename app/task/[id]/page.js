@@ -12,9 +12,8 @@ const task = await getTask(params.id)
         <Link href='/task' className='btn btn-accent'>
             Back To Task
         </Link>
-
-        <EditForm task={task} />
     </div>
+        <EditForm task={task} />
     </>
   )
 }
