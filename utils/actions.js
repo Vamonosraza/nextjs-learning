@@ -30,3 +30,21 @@ export const deleteTask = async (formData) =>{
     });
     revalidatePath('/task');
 }
+
+export const getTask = async (id) => {
+    return prisma.task.findUnique({
+        where: {id},
+    });
+    }
+
+
+export const editTask = async (formData) => {
+    const id = formData.get('id');
+
+    await prisma.task.update({
+        where: {id},
+        data: {
+            content: formData.get('content')
+        }
+    })
+}
