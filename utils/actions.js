@@ -2,6 +2,7 @@
 
 import prisma from "@/utils/db"
 import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation";
 
 export const getAllTasks = async () => {
     return await prisma.task.findMany({
@@ -49,6 +50,7 @@ export const editTask = async (formData) => {
         data: {
             content,
             completed:completed === 'on'? true : false,
-        }
-    })
+        },
+    });
+    redirect('/task');
 }
