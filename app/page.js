@@ -9,7 +9,7 @@ const page = () => {
         Home Page
       </h1>
       <Link href='/about' className='btn btn-accent'>About Page</Link>
-      <Link href='/about/info' className='text-2xl m-2'>Info Page</Link>
+      <Link href='/about/info' className='btn btn-accent'>Info Page</Link>
     </div>
   )
 }
